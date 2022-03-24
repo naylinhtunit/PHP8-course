@@ -98,3 +98,67 @@ $type = match
 echo $type;
 ```
 <img src="https://i.ibb.co/ypMZBVs/4.png" alt="Match Expression img" width="800">
+
+* Constructor Property Promotion => __constructor(protected $name)
+
+```
+//class User {
+//	protected $name;
+//  	public function __construct($name)
+//    {
+//      $this->name = $name;
+//    }
+//}
+
+//class Plan {
+//	protected $name;
+//  	public function __construct($name)
+//    {
+//    	$this->name = $name;
+//    }
+//}
+
+//class Signup {
+//	protected User $user;
+//  	protected Plan $plan;
+//  	public function __construct($user, $plan)
+//    {
+//    	$this->user = $user;
+//      	$this->plan = $plan;
+//    }
+//}
+
+//$user = new User("Kalin");
+//$plan = new Plan("PHP8");
+
+//$signup = new Signup($user, $plan);
+
+//var_dump($signup);
+
+
+class User {
+  	public function __construct(protected $name)
+    {
+    }
+}
+
+class Plan {
+  	public function __construct(protected string $name = 'PHP')
+    {
+    }
+}
+
+class Signup {
+  	public function __construct(protected User $user, protected Plan $plan)
+    {
+    }
+}
+
+$user = new User("Kalin");
+$plan = new Plan();
+
+$signup = new Signup($user, $plan);
+
+var_dump($signup);
+```
+<img src="https://i.ibb.co/vzx8Qx0/5.png" alt="Constructor Property Promotion img" width="800">
