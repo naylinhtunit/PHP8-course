@@ -63,3 +63,38 @@ $user = new User();
 echo $user->profile()?->employment() ?? 'Not provided';
 ```
 <img src="https://i.ibb.co/kGT9zSV/3.png" alt="Null Coalescing Operator img" width="800">
+
+* Match Expression => match(get_class())
+
+```
+class Conversation{}
+
+$obj = new Conversation();
+
+//switch(get_class($obj))
+//{
+//  case 'Conversation':
+//    $type = 'started conversation';
+//    break;
+    
+//  case 'Reply':
+//    $type = 'started reply conversation';
+//    break;
+    
+//  case 'Comment':
+//    $type = 'started comment conversation';
+//    break;
+//}
+
+$type = match(get_class($obj))
+{
+	'Conversation' => 'started conversation',
+  	'Reply' => 'started reply conversation',
+  	'Comment' => 'started comment conversation',
+};
+
+$type = match
+
+echo $type;
+```
+<img src="https://i.ibb.co/ypMZBVs/4.png" alt="Match Expression img" width="800">
