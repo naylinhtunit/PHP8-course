@@ -20,7 +20,7 @@ class Profile {
 $user = new User();
 echo $user->profile()?->employment();
 ```
-<img src="https://i.ibb.co/8KyzpVT/1.png" alt="Nullsafe Operator img" width="800">
+<img src="https://i.ibb.co/SmP4mmw/Nullsafe-Operator-1.png" alt="Nullsafe-Operator-1" width="800">
 
 ```
 class User {
@@ -40,7 +40,7 @@ class Profile {
 $user = new User();
 var_dump($user->profile()?->employment());
 ```
-<img src="https://i.ibb.co/3fb7H7J/2.png" alt="Nullsafe Operator img" width="800">
+<img src="https://i.ibb.co/pzxsFQM/Nullsafe-Operator-2.png" alt="Nullsafe-Operator-2" wdith="800">
 
 
 * Null Coalescing Operator => ??
@@ -62,7 +62,7 @@ class Profile {
 $user = new User();
 echo $user->profile()?->employment() ?? 'Not provided';
 ```
-<img src="https://i.ibb.co/kGT9zSV/3.png" alt="Null Coalescing Operator img" width="800">
+<img src="https://i.ibb.co/QJghv6P/Null-Coalescing-Operator.png" alt="Null-Coalescing-Operator" width="800">
 
 * Match Expression => match(get_class())
 
@@ -93,11 +93,9 @@ $type = match(get_class($obj))
   	'Comment' => 'started comment conversation',
 };
 
-$type = match
-
-echo $type;
+var_dump($type);
 ```
-<img src="https://i.ibb.co/ypMZBVs/4.png" alt="Match Expression img" width="800">
+<img src="https://i.ibb.co/fDZn4BL/Match-Expression.png" alt="Match-Expression" width="800">
 
 * Constructor Property Promotion => __constructor(protected $name)
 
@@ -161,4 +159,23 @@ $signup = new Signup($user, $plan);
 
 var_dump($signup);
 ```
-<img src="https://i.ibb.co/vzx8Qx0/5.png" alt="Constructor Property Promotion img" width="800">
+<img src="https://i.ibb.co/xSHFX9v/Constructor-Property-Promotion.png" alt="Constructor-Property-Promotion" width="800">
+
+* $obj::class
+```
+class Conversation {
+    //
+}
+
+$obj = new Conversation();
+
+$type = match($obj::class)
+{
+    'Conversation' => 'started conversation',
+    'Reply' => 'started reply',
+    'Comment' => 'started comment',
+};
+
+var_dump($type);
+```
+<img src="https://i.ibb.co/XjvPFsK/obj-class.png" alt="obj-class" width="800">
